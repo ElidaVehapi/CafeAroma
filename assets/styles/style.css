@@ -1,0 +1,190 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #8D6E63, #FBF7F5);
+    font-family: 'Poppins', sans-serif;
+    background-attachment: fixed;
+}
+
+header {
+    background-color: transparent;
+    box-shadow: none;
+    display: flex;
+    justify-content: space-between; /* Zentriert die Elemente horizontal */
+    align-items: center;
+    margin-right: 30%;
+    padding: 20px;
+}
+
+.menu {
+    height : 50px;
+    width: 100%;
+    padding: 0 10px;
+}
+.menu .nav-btn {
+    display: none;
+}
+@media (max-width: 600px) {
+    .menu .nav-btn {
+        display: inline-block;
+    }
+    .menu #nav-check:not(:checked) ~ .nav-links {
+        height: 0px;
+    }
+    .menu #nav-check:checked ~ .nav-links{
+        height: 250px;
+        overflow-y: hidden;
+    }
+}
+nav {
+    align-items: center;
+    margin-left: 40%;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    font-weight: bolder;
+    font-size: 25px;
+    gap :80px;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
+
+/* Content-Bereich */
+.content {
+    padding: 4rem;
+    font-weight: bold;
+}
+.content1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+    font-weight: bold;
+}
+.content2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4rem;
+    font-weight: bold;
+    margin-top: 10%;
+}
+
+.text {
+    max-width: 50%;
+    font-weight: bold;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+.text h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-weight: bolder;
+    line-height: 0.85;
+}
+.italien {
+    background: linear-gradient(to bottom, #1f1917, transparent);
+    -webkit-background-clip: text; /* Für Webkit-basierte Browser (Chrome, Safari) */
+    background-clip: text;
+    color: transparent;
+    margin-left: 10px;
+}
+
+.text p {
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+.text2 {
+    margin-right: 5%;    
+    margin-top: 5%;
+}
+
+.textbrown{
+    color:  #735851;
+    font-size: 150%;
+}
+
+.cafearoma {
+    background: linear-gradient(90deg, #1f1917 2ch, #735851 6ch);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: bold;
+    font-size: 120%;
+    line-height: 1.5;
+}
+
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.buy-button, .viewmore-button {
+    display: inline-block;
+    background-color: #5D4037;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    width: 50%;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.imageExpresso {
+    flex: 1;
+    margin-left: 110px;
+    
+}
+
+
+.flex-container {
+    display: flex;
+    align-items: center; /* Vertikal zentrieren */
+    gap: 20px; /* Abstand zwischen den Elementen */
+}
+
+.cafelogocute img {
+    max-width: 100px;
+    margin-left: 120%;
+    margin-bottom: 90%;
+}
+.butfirstcoffee {
+    font-size: 65px;
+}
+
+.flex-container3 {
+    margin-top: 10%;
+    margin-right: -5%;
+    font-size: 250%;
+    height: 120%;
+    width: 40%;
+}
+.cafepictures {
+    max-height: 50px;
+
+}
+
+/* Footer */
+footer {
+    position:fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 2rem 0;
+    background: linear-gradient(to top, #8D6E63, #FBF7F5);
+;
+} 
