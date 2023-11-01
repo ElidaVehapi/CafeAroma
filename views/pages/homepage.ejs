@@ -10,109 +10,128 @@
 
      <!-- Link zur Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-
-    <!-- Link zur Bootstrap JavaScript-Bibliothek (optional, abhängig von deinen Bedürfnissen) -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"></script>
-
-    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css'><link rel="stylesheet" href="./style.css">
-
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 </head>
 <body>
-    <header>
-        <img style="width: 170px; left: 25px; top: 25px;" class="position-absolute" alt="CafeAromaLogo" src="/images/Logo.png"/>
-
         <nav>
-            <ul>
-                <li><a href="/">HOME</a></li>
-                <li><a href="/cafe">CAFE</a></li>
-                <li><a href="/shop">SHOP +</a></li>
-                <li><a href="/aboutus">ABOUT US</a></li>
-            </ul>
-        </nav>
-            <div class= „menu“>
-            <input type="checkbox" id=" nav-check">
-            <div class = "new-header"> ... </div>
-            <div clas = "nav-btn">
-                <label for="nav-check">
-                    <span> 1 </span>
-                    <span> 2 </span>
-                    <span> 3 </span>
-                </label>
+            <div class="container-fluid p-0">
+            <div class ="row" >
+                <div class="col-3 col-md-2">
+                <img style="width: 170px; left: 25px; top: 25px;" src="/images/Logo.png"/>
+                </div>
+
+                <div class="col-6 col-md-8">
+                <ul>
+                    <li><a class="active" href="#">Home</a></li>
+                    <li><a href="#">Cafe</a></li>
+                    <li><a href="#">Shop </a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                </div>
+
+                <div class="col-3 col-md-2">
+                    <input type="checkbox" id="check">
+                    <label for="check" class="checkbtn">
+                        <i class ="fa fa-bars"></i>
+                    </label>
+                    </div>
             </div>
         </div>
-    </div>
+        </nav>
+            
+        <main>
+            <div class="container-fluid p-0">
+                <div class="row" style="display:flex" >
+                            <div class="col-12 col-md-4">
+                                <div class="welcome-text">
 
-    </header>
-
-    <main>
-        <div class="content">
-            <section class="content1">
-                <div class="text">
-                    <h1>
-                        <span >THE BEST <br> </span>
-                        <span class="italien"> ITALIEN <br> </span>
-                        <span >COFFEE </span>
-                    </h1>
-                    
-                    <p>Welcome to CafeAroma. We are <br> passionate about coffee and offer <br> you the finest coffee products of <br> the highest quality. Our company <br> was born from our love for the <br> bean, and we want to share this <br>passion with you.</p>
-                    <div class="buttons"> 
-                        <a href="/shop" class="buy-button">BUY MORE</a>
-                        <a href="/viewmore" class="viewmore-button">VIEW MORE</a>
-                    </div>
-                </div>
-                 <div class="imageExpresso">
-                    <img style="width: 70%; margin-right: 100px;  top: 25px;" ,alt="Expresso" src="/images/expresso.png"/>
-                </div>
-                <div class= "text2">
-                        <span class="textbrown">
-                            We look forward to enhancing <br> your coffee experience. Browse <br> through our products, read our <br> menu, and feel free to contact <br> 
-                            us if you have any questions.<br> Thank you for choosing <br>
-                        </span> 
-                        <h4><span class="cafearoma"> CafeAroma</span></h4>
-                </div>  
-            </section>
-            <section class="content2">
-                <div class= "text3">
-                        <div class="flex-container">
-                            <span class="butfirstcoffee">But first.. Cafe</span>
                                     <div>
-                                        <img style="width: 4%; left: 120%px; bottom: -24%;" class="position-absolute" alt="LogoCute" src="/images/logoCute.png"/>
+                                    <h1>
+                                        <span>THE BEST <br> </span>
+                                        <span class="italien"> ITALIEN <br> </span>
+                                        <span>COFFEE </span>
+                                    </h1>
                                     </div>
 
+                                    <div>
+                                    <p>Welcome to CafeAroma. We are <br> passionate about coffee and offer <br> you the finest coffee
+                                        products of <br> the highest quality. Our company <br> was born from our love for the <br>
+                                        bean, and we want to share this <br> passion with you.
+                                    </p>
+                                    </div>
+                                </div>
                             </div>
-                    <p>
-                        Our range includes a wide selection of coffee beans from different regions of <br> 
-                        the world, carefully roasted to preserve the full flavor and aroma. From classic <br> 
-                        Arabica to exotic varieties, you will find coffee to suit every taste.<br> 
-                        <br>
-                        Our website not only provides the opportunity to order high-quality coffee but <br>
-                        also offers informative articles and tips on all things coffee-related. We take <br> 
-                        pride in our expertise and wish to share our knowledge with you.
-                    </p>
-                </div>
-            
+                            <div class="col-12 col-md-4">
+                            <div class="expresso-image">
+                                <img style="width: 100%;", alt="Expresso"src="/images/expresso.png" />
+                            </div>
+                            </div>
 
-            
-                        <div class="flex-container3">
-                            <span class="coffeaestethic">What's your Cafe <br> aestethic? <br> </span>
-                            
-                                    
-                            <div style="width: 220px; height: 170px;" class="pictures">
-                                <img style="width: 170px; right: 52s0px;" class="position-absolute" alt="The sky above the ocean" src="/images/picleft.png"/>
-                                <img style="width: 170px;  right:280px;" class="position-absolute" purpose="cloud-1" alt="A grayish-blue cloud" src="/images/picright.png"/>
-                              </div>
-                </section>
-              
-        </div>
-    </main>
-    <footer>
-        &copy; 2023 CafeAroma. All rights reserved.
-    </footer>
+                            <div class="col-12 col-md-4">
+                                <div class="text-brown" >
+                                    We look forward to enhancing <br> your coffee experience. Browse <br> through our products,
+                                    read our <br> menu, and feel free to contact <br> us if you have any questions.<br> Thank you
+                                    for choosing <br>
+                                </div>
+                                <h4><span class="cafearoma"> CafeAroma</span></h4>
+                            </div>
+
+
+                        <div class="row">
+                            <div class="col-3">
+
+                            <div class="buttons" >
+                                <a href="#" class="buy-button">BUY MORE</a>
+                                <a href="#" class="viewmore-button">VIEW MORE</a>
+                            </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                
+
+<div class="row">
+    <div class="col-6"> 
+      <div class="First-Coffe-Element" style="display: flex;">
+         <div class= "Bold-Header"> But first.. Cafe </div>
+          <img src="/images/logoCute.png" />
+      </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="cafe-text"></div>
+    <div>
+        Our range includes a wide selection of coffee beans from different regions of <br> the world,
+        carefully roasted to preserve the full flavor and aroma. From classic <br> Arabica to exotic
+        varieties, you will find coffee to suit every taste.<br> <br> Our website not only provides
+        the opportunity to order high-quality coffee but <br> also offers informative articles and
+        tips on all things coffee-related. We take <br> pride in our expertise and wish to share our
+        knowledge with you.
+    </div>
+</div>
+
+<div class="row" style="margin-right: auto;">
+
+
+    <div class="coffeaesthetic" style="align-items: right;" >
+        <div class="Bold-Header"> What's your Cafe <br> aestethic? <br></div>
+             <div class="pictures" style="display: flex;">
+                <img style="width: 170px; right: 520px;" 
+               alt="The sky above the ocean" src="/images/picleft.png" />
+               <img style="width: 170px; right: 280px;"  purpose="cloud-1"
+              alt="A grayish-blue cloud" src="/images/picright.png" />
+            </div>
+    </div>
+</div>
+</div>
+
+        </main>
+        <footer>
+            &copy; 2023 CafeAroma. All rights reserved.
+        </footer>
+    </body>
 </body>
 </html>
