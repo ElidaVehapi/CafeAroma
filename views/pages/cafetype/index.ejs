@@ -1,0 +1,26 @@
+<div class="container">
+    <h1>Cafe Types</h1>
+
+    <div class="item-content">
+        <table class="table">
+            <thead>
+                <th>Name</th>
+            </thead>
+            <tbody>
+                <% cafetypes.forEach(function(cafetype){ %>
+                    <tr>
+                        <td>
+                            <%= cafetype.name %>
+                        </td>
+                        <td>
+                            <a href="/cafetype/<%= cafetype.id %>/destroy">Löschen</a>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+
+        <a class="green-button mt-4" href="/cafetype/new">Hinzufügen</a>
+    </div>
+</div>
+</div>

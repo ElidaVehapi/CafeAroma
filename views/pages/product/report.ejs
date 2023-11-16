@@ -1,0 +1,36 @@
+<div class="container">
+    <h1>KaffeeProdukte</h1>
+
+    <div class="item-content">
+        <table class="table">
+            <thead>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Erzeugt</th>
+                <th>zuletzt Geändert</th>
+            </thead>
+            <tbody>
+                <% entries.forEach(function(entry){ %>
+                    <tr>
+                        <td>
+                            <%= entry.id %>
+                        </td>
+                        <td>
+                            <%= entry.name %>
+                        </td>
+
+                        <td>
+                            <% const timestamp1 = new Date(entry.createdAt); %>
+                            <%= timestamp1.toLocaleString() %>
+                        </td>
+                        <td>
+                            <% const timestamp2 = new Date(entry.updatedAt); %>
+                            <%= timestamp2.toLocaleString() %>
+                        </td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

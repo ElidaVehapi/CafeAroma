@@ -20,6 +20,34 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/homepage' },
+  
+  'GET /admin': { view: 'pages/admin' },
+
+  /*'GET /product/new': { controller: 'ProductController', action: 'new' },
+  'POST /product': { controller: 'ProductController', action: 'create' },
+  'GET /product': 'ProductController.find',
+  'GET /product/:id': 'product.findOne',*/
+  'GET /product/new': { view: 'pages/product/new' },
+  'POST /product': { controller: 'ProductController', action: 'create' },
+  'GET /product': 'ProductController.find',
+  'GET /product/:id': 'product.findOne',
+
+
+  'GET /product/:id/edit': { controller: 'ProductController', action: 'editOne' },
+  'POST /product/:id/update': { controller: 'ProductController', action: 'updateOne' },
+  'GET /product/:id/destroy': { controller: 'ProductController', action: 'destroyOne' },
+
+  'GET /product/report': 'product.report',
+
+  'GET /cafetype/new': { view: 'pages/cafetype/new' },
+  'POST /cafetype': { controller: 'CafetypeController', action:'create' },
+  'GET /cafetype/:id/destroy': { controller: 'CafetypeController', action: 'destroyOne' },
+  'GET /cafetype': { controller: 'CafetypeController', action: 'find' },
+};
+
+
+
+
 
 
   /***************************************************************************
@@ -34,4 +62,4 @@ module.exports.routes = {
   ***************************************************************************/
 
 
-};
+

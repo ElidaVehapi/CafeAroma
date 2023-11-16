@@ -8,26 +8,19 @@
 module.exports = {
 
   attributes: {
-
-    price: {
-      type: 'number', 
-      columnTyp: 'DECIMAL(6,2)', 
-      required: true 
-    },
-
     name: {
-      type: 'string', 
-      columnTyp: 'varchar(80)', 
-      required: true 
+      type: 'string',
+      columnType: 'varchar(80)',
+      required: true
     },
-
+    price: {
+      type: 'number',
+      columnType: 'DECIMAL(6,2)',
+      required: true
+    },
     cafetype: {
-      type: 'string', 
-      columnTyp: 'varchar(80)', 
-      required: true 
-    }    
-
+      model: 'cafetype'
+    }
   },
-
 };
 
