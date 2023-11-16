@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>KaffeeProdukte</h1>
+
+    <form action="/product">
+        <label>Suche</label>
+        <input type="text" value="<%= req.query.q || '' %>" length="20" name="q">
+        
+        <label>Cafetype</label>
+        <select name="cafetype">
+            <option value="" <% if (!req.query.cafetype) { %>selected<% } %>>Alle</option>
+            <% cafetypes.forEach(function(cafetype) { %>
+                <option value="<%= cafetype.id %>" <% if (req.query.cafetype == cafetype.id) { %>selected<% } %>><%= cafetype.name %></option>
+            <% }); %>
+        </select>
+    
+        <button class="green-button" type="submit">Suche</button>
+    </form>
+
+    
+
+    <div class="item-content">
+        <table class="table">
+            <thead>
+                <th>Name</th>
+                <th>Preis</th>
+            </thead>
+            <tbody>
+                <% products.forEach(function(product){ %>
+                    <tr>
+                        <td>
+                            <%= product.name %>
+                        </td>
+                        <td>
+                            <%= product.price %>
+                        </td>
+                        <td>
+                            <%= product.cafetype.name %>
+                        </td>
+                        <td> <a class="green-button" href="/product/<%= product.id %>">anzeigen</a></td>
+                        <td> <a class="green-button" href="/product/<%= product.id %>/edit">ändern</a></td>
+                        <td> <a class="green-button" href="/product/<%= product.id %>/destroy">löschen</a></td>
+                    </tr>
+                    <% }); %>
+            </tbody>
+        </table>
+        <a class="green-button" href="/product/new">Hinzufügen</a>
+    </div>
+</div>
+</div>
