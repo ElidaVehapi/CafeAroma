@@ -23,11 +23,9 @@ module.exports.routes = {
   
   'GET /admin': { view: 'pages/admin' },
 
-  /*'GET /product/new': { controller: 'ProductController', action: 'new' },
-  'POST /product': { controller: 'ProductController', action: 'create' },
-  'GET /product': 'ProductController.find',
-  'GET /product/:id': 'product.findOne',*/
-  'GET /product/new': { view: 'pages/product/new' },
+
+
+  'GET /product/new': { controller: 'ProductController', action:'new' },
   'POST /product': { controller: 'ProductController', action: 'create' },
   'GET /product': 'ProductController.find',
   'GET /product/:id': 'product.findOne',
