@@ -6,13 +6,6 @@
  */
 
 
-/**
- * CREATE Order
- * Update Price
- * DELETE Order
- * READ Order  
- *
- */
 
 const Sails = require("sails/lib/app/Sails");
 /*const Product = require("../models/Product");*/
@@ -33,8 +26,8 @@ module.exports = {
       res.redirect('/product');
    
   },
-
-  /*find: async function (req, res) {
+/*
+  find: async function (req, res) {
     sails.log.debug("List all products....")
     let products;
     if (req.query.q && req.query.q.length > 0) {
@@ -47,44 +40,45 @@ module.exports = {
       products = await Product.find().populate("cafetype");
     }
     res.view ('pages/product/index', { products: products } );
-  },*/
+  }, */
+
   find: async function (req, res) {
     sails.log.debug("List all products....")
     let products;
 
-    // Holen Sie sich die Suchparameter aus der Anfrage
     const searchQuery = req.query.q;
     const cafetypeFilter = req.query.cafetype;
 
-    // Definiere die Suchkriterien
     let criteria = {};
 
     if (searchQuery && searchQuery.length > 0) {
         criteria.name = { 'contains': searchQuery };
     }
-
     if (cafetypeFilter && cafetypeFilter.length > 0) {
-        criteria.cafetype = cafetypeFilter;
+        criteria.cafetype = parseInt(cafetypeFilter,10);
     }
-
-    if (Object.keys(criteria).length > 0) {
-      // Wenn es Suchkriterien gibt, füge diese zur Abfrage hinzu
-      criteria = {
-          and: [criteria]  // Kombiniere Bedingungen mit AND-Operator
-      };
-      products = await Product.find(criteria).populate("cafetype");
-  } else {
-      // Wenn keine Suchkriterien vorhanden sind, zeige alle Produkte an
-      products = await Product.find().populate("cafetype");
+ 
+    try {
+      if (Object.keys(criteria).length > 0) {
+          sails.log.debug("Final Criteria:", criteria);
+          criteria.cafetype = parseInt(criteria.cafetype, 10); 
+          products = await Product.find({
+              where: criteria
+          }).populate("cafetype");
+      } else {
+          // Wenn keine Suchkriterien vorhanden sind, zeige alle Produkte an
+          products = await Product.find().populate("cafetype");
+      }
+  } catch (error) {
+      sails.log.error("Error during database query:", error);
   }
   
-
-  res.view ('pages/product/index', { products: products });
-},
+  res.view('pages/product/index', { products: products });
+}, 
 
   findOne: async function (req, res) {
     sails.log.debug("List single product....")
-    let product = await Product.findOne({ id: req.params.id });
+    let product = await Product.findOne({ id: req.params.id })
     res.view ('pages/product/show', { product: product } );
   },
 
@@ -95,10 +89,21 @@ module.exports = {
   },
   
   editOne: async function (req, res) {
-    sails.log.debug("Edit single product....")
-    let product = await Product.findOne({ id: req.params.id }).populate('name');
-    res.view('pages/product/edit', { product: product });
-  },
+    sails.log.debug("Edit single product....");
+    try {
+      let product = await Product.findOne({ id: req.params.id }).populate('cafetype');
+      if (!product) {
+        sails.log.debug("Product not found.");
+          return res.notFound();
+      }
+      sails.log.debug("Product loaded:", product);
+
+      res.view('pages/product/edit', { product });
+  } catch (error) {
+      sails.log.error("Error while editing product:", error);
+      return res.serverError(error);
+  }
+},
   
 
   updateOne: async function (req, res) {
