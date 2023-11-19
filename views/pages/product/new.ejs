@@ -1,19 +1,18 @@
 
 <div class="container">
   <form action="/product" method="post">
-    <div>
-      <h1>Neues Produkt erstellen</h1>
+      <h1>Create New Product</h1>
       <div class="form-group">
         <label class="col-form-label-lg">Name</label>
         <input type="text" class="form-control" maxlength="80" name="name">
-    </div>
-    <div class="form-group">
-      <label class="col-form-label-lg">Preis</label>
+      </div>  
+      <div class="form-group">
+      <label class="col-form-label-lg">Price</label>
       <input type="text" class="form-control" maxlength="8" name="price">
-    </div>
+      </div>
 
-    <div class="form-group">
-      <label class="col-form-label-lg">Cafetype</label>
+    <div class="form-group" >
+      <label class="col-form-label-lg">Cafetype (required)</label>
       <select id="cafetype" name="cafetype">
         <option value="" selected>select</option>
           <% for (let i = 0; i < cafetypes.length; i++) { %>
@@ -22,7 +21,7 @@
       </select>    
     </div>
 
-    <button type="submit" class="btn btn-primary mt-4">Hinzufügen</button>
+    <button type="submit" class="brown-button" style="width: 10%">Add</button>
     </form>
-  </div>
+</div>
   

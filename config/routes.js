@@ -41,6 +41,7 @@ module.exports.routes = {
   'POST /cafetype': { controller: 'CafetypeController', action:'create' },
   'GET /cafetype/:id/destroy': { controller: 'CafetypeController', action: 'destroyOne' },
   'GET /cafetype': { controller: 'CafetypeController', action: 'find' },
+
 };
 
 

@@ -1,8 +1,8 @@
 <div class="container">
-    <h1>KaffeeProdukte</h1>
+    <h1>CafeProducts</h1>
 
     <form action="/product">
-        <label>Suche</label>
+        <label>Search</label>
         <input type="text" value="<%= req.query.q || '' %>" length="20" name="q">
         
         <label>Cafetype</label>
@@ -13,7 +13,7 @@
             <% }); %>
         </select>
     
-        <button class="green-button" type="submit">Suche</button>
+        <button class="standard-btn " type="submit">Search</button>
     </form>
 
     
@@ -22,7 +22,7 @@
         <table class="table">
             <thead>
                 <th>Name</th>
-                <th>Preis</th>
+                <th>Price</th>
                 <th>Cafetype</th>
             </thead>
             <tbody>
@@ -37,14 +37,14 @@
                         <td>
                             <%= product.cafetype.name %>
                         </td>
-                        <td> <a class="green-button" href="/product/<%= product.id %>">anzeigen</a></td>
-                        <td> <a class="green-button" href="/product/<%= product.id %>/edit">ändern</a></td>
-                        <td> <a class="green-button" href="/product/<%= product.id %>/destroy">löschen</a></td>
+                        <td> <a class="standard-btn" href="/product/<%= product.id %>">Show</a></td>
+                        <td> <a class="standard-btn" href="/product/<%= product.id %>/edit">Edit</a></td>
+                        <td> <a class="standard-btn" href="/product/<%= product.id %>/destroy">Delete</a></td>
                     </tr>
                     <% }); %>
             </tbody>
         </table>
-        <a class="green-button" href="/product/new">Hinzufügen</a>
+        <a class="brown-button" href="/product/new">Add</a>
     </div>
 </div>
 </div>
