@@ -1,5 +1,5 @@
 <div class="container">
-    <h1>Cafe Types</h1>
+    <h1>CafeTypes</h1>
 
     <div class="item-content">
         <table class="table">
@@ -13,14 +13,14 @@
                             <%= cafetype.name %>
                         </td>
                         <td>
-                            <a href="/cafetype/<%= cafetype.id %>/destroy">Löschen</a>
+                            <a class="standard-btn" href="/cafetype/<%= cafetype.id %>/destroy">Delete</a>
                         </td>
                     </tr>
                     <% }); %>
             </tbody>
         </table>
 
-        <a class="green-button mt-4" href="/cafetype/new">Hinzufügen</a>
+        <a class="brown-button"  href="/cafetype/new">Add</a>
     </div>
 </div>
 </div>

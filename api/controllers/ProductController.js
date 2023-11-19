@@ -24,8 +24,12 @@ module.exports = {
     let params = req.allParams();
     await Product.create(params);
       res.redirect('/product');
-   
   },
+
+  
+  
+
+
 /*
   find: async function (req, res) {
     sails.log.debug("List all products....")
