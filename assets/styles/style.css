@@ -11,26 +11,29 @@ body {
 }
 
 header {
-    padding: 0px 2rem;
 }
 
 
-nav {
-    display: flex;
-    align-items: center;
-    gap: 1em;
-    margin-right: 6em;
+.navbar {
+
 }
 
-nav a {
-    margin-left: 5rem;
+/* cafe, shop, about + login  */
+.navbar a {
     color: #000;
-    font-size: 1.5rem;
     text-decoration: none;
     text-transform: uppercase;
     font-weight:bold;
-
 }
+
+/* nur cafe bis admin */
+ .navbar-nav {
+    gap: 40px;
+    font-size: 25px
+}
+
+
+
 
 a:hover{
     background: #875e4c;
@@ -168,6 +171,34 @@ footer {
     display: none;
 }
 
+.c-item {
+    height: 600px
+}
+
+
+
+#cart-icon{
+    font-size: 35px;
+}
+
+#user-icon{
+    font-size: 35px;
+}
+/* navbar drei striche */
+
+
+.icons {
+    position: absolute;
+    font-size: 2.8rem;
+    color: #000;
+    cursor: pointer;
+    display: None;
+    right: 0;
+    
+}
+
+
+
 
 /* alles in mobile version von 0 bis einschlißelich 767 */
 @media  (max-width:767px) {
@@ -198,8 +229,12 @@ footer {
 
 
 /* nach mobile version */
-@media  (min-width:768px) {
+@media  (max-width:992px) {
    
+   #offcanvasNavbar{
+    background-color:#8D6E63;
+    backdrop-filter: blur(50px);
+   }
     
 }
 
