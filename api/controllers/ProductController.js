@@ -30,6 +30,7 @@ module.exports = {
   
 
 
+//search button
 /*
   find: async function (req, res) {
     sails.log.debug("List all products....")
@@ -44,7 +45,9 @@ module.exports = {
       products = await Product.find().populate("cafetype");
     }
     res.view ('pages/product/index', { products: products } );
-  }, */
+  }, 
+*/
+
 
   find: async function (req, res) {
     sails.log.debug("List all products....")
@@ -58,14 +61,20 @@ module.exports = {
     if (searchQuery && searchQuery.length > 0) {
         criteria.name = { 'contains': searchQuery };
     }
-    if (cafetypeFilter && cafetypeFilter.length > 0) {
+
+    if(cafetypeFilter && !(cafetypeFilter === "-1")){
+      sails.log.debug("option all selected")
+
+      if (cafetypeFilter && cafetypeFilter.length > 0) {
         criteria.cafetype = parseInt(cafetypeFilter,10);
     }
- 
+    }
+
     try {
+
       if (Object.keys(criteria).length > 0) {
           sails.log.debug("Final Criteria:", criteria);
-          criteria.cafetype = parseInt(criteria.cafetype, 10); 
+
           products = await Product.find({
               where: criteria
           }).populate("cafetype");
@@ -76,9 +85,13 @@ module.exports = {
   } catch (error) {
       sails.log.error("Error during database query:", error);
   }
-  
-  res.view('pages/product/index', { products: products });
+
+
+  let cafetypes = await Cafetype.find();
+
+  res.view('pages/product/index', { products: products, cafetypes:cafetypes });
 }, 
+
 
   findOne: async function (req, res) {
     sails.log.debug("List single product....")
