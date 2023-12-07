@@ -17,6 +17,21 @@ module.exports.policies = {
   *                                                                          *
   ***************************************************************************/
 
-  // '*': true,
+//   '*': 'is-logged-in',
 
+//   // Bypass the `is-logged-in` policy for:
+//   'entrance/*': true,
+//   'account/logout': true,
+
+//   ShopProductsController: {
+//     '*': true,
+//   },
+
+//   ProductController: {
+//     '*': 'is-super-admin',
+//   },
+//   CafetypeController: {
+//     '*': 'is-super-admin',
+//   }
+// 
 };
