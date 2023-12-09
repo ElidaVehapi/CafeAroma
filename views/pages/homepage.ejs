@@ -1,95 +1,137 @@
-
-
-
 <div class="container-fluid">
-    <div class="row" style=" margin-top: 5em; margin-left: 5em;">
-        <div class="col-md-4">
-            <div class="welcome-text" >
-                <h1>
-                    THE BEST <br> 
-                    <div class="italien"> ITALIAN </div> 
-                    COFFEE 
-                </h1>
-                <div class="text-brown">
-                    Welcome to CafeAroma. We are <br> passionate about coffee and offer <br> you the finest coffee
-                    products of <br> the highest quality. Our company <br> was born from our love for the <br>
-                    bean, and we want to share this <br> passion with you.
-                </div>
-            </div>
-            
-            <div class="buttons" style="margin-top: 1em;">
-                <a href="/shop" class="brown-button">BUY MORE</a> 
-                <a href="/cafe" class="brown-button">VIEW MORE</a>
-            </div>
+  <div class="row" style="margin-top: 5em; margin-left: 5em">
+    <div class="col-md-4">
+      <div class="welcome-text">
+        <h1>
+          THE BEST <br />
+          <div class="italien">ITALIAN</div>
+          COFFEE
+        </h1>
+        <div class="text-brown">
+          Welcome to CafeAroma. We are <br />
+          passionate about coffee and offer <br />
+          you the finest coffee products of <br />
+          the highest quality. Our company <br />
+          was born from our love for the <br />
+          bean, and we want to share this <br />
+          passion with you.
         </div>
+      </div>
 
-        <div class="col-md-5">
-                <img class="HomePic", alt="Expresso"src="/images/expresso.png" />
-        </div>
+      <div class="buttons" style="margin-top: 1em">
+        <% if(req.me) { %>
+        <a href="/shop" class="brown-button">BUY </a>
+        <% } else { %>
+        <a href="/login" class="brown-button">BUY </a>
+        <% } %>
 
-        <div class="col-md-3">
-            <div class="text-brown" style="margin-top: 5em; margin-right: 2em; font-weight: 300; font-size: 20px;">
-                CafeAroma is more than a brand; it's a commitment to sharing the richness of this passion with you.We look forward to enhancing your coffee experience and being part of your coffee journey. Browse through our products, read our menu, and feel free to contact us if you have any questions. Thank you for choosing 
-            </div>
-            <div class="cafearoma">CafeAroma</div>
-        </div>
-
+        <a href="/cafe" class="brown-button">VIEW MORE</a>
+      </div>
     </div>
 
-    <div class="row" style=" margin-top: 10em;">
-        <div class="col-md-6" style="margin-left: 2em;">
-                <div class= "Bold-Title"> But first.. Cafe 
-                 <img src="/images/logoCute.png" style="margin-left: .1em; margin-bottom: 1em;"  />
-                </div>
-                <div class="cafe-text" style="margin-top: -1em;">
-                    Explore various coffee preparations, from the rich and creamy cappuccino to the robust 
-                    and energizing macchiato.We believe that understanding the art of coffee preparation 
-                    enhances the overall coffee experience. Our range includes a wide selection of coffee
-                     beans from different regions of the world, carefully roasted to preserve the full 
-                     flavor aromatic essence, ranging from the timeless classic of Arabica to the allure
-                      of exotic varieties, ensuring a coffee to suit every taste.
-                </div>
-            </div>
+    <div class="col-md-5">
+      <img class="HomePic" , alt="Expresso" src="/images/expresso.png" />
     </div>
 
-    <div class="row justify-content-end" style="margin-top: 10em; margin-right: 5em;">
-        
-        <div class="col-md-8" style="margin-top: 10em;">
-            <div class="cafe-text">
-                Our commitment extends beyond providing the finest coffee; our website is a valuable 
-                resource offering <br> insightful articles and tips on everything coffee-related. Immerse 
-                yourself in our expertise,<br> and feel free to reach out with any questions. We take pride
-                in our expertise and wish to share our knowledge with you.
-            </div>
-        </div>
-        
-        
-        <div class="col-md-4">
-            <div class="Bold-Title" style="text-align: center;">
-                What's your aestehtic?
-            </div>
-            
-            <div id="hero-carousel" class="carousel slide"  data-bs-ride="carousel">
-    
-                <div class="carousel-inner">
-                  <div class="carousel-item active c-item">
-                    <img class="d-block w-100" src="/images/picLeft.png" alt="First slide">
-                  </div>
-            
-                  <div class="carousel-item c-item">
-                    <img class="d-block w-100" src="/images/picright.png" alt="second slide">
-                  </div>
-                </div>
-
-                <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
+    <div class="col-md-3">
+      <div
+        class="text-brown"
+        style="
+          margin-top: 5em;
+          margin-right: 2em;
+          font-weight: 300;
+          font-size: 20px;
+        "
+      >
+        CafeAroma is more than a brand; it's a commitment to sharing the
+        richness of this passion with you.We look forward to enhancing your
+        coffee experience and being part of your coffee journey. Browse through
+        our products, read our menu, and feel free to contact us if you have any
+        questions. Thank you for choosing
+      </div>
+      <div class="cafearoma">CafeAroma</div>
     </div>
+  </div>
+
+  <div class="row" style="margin-top: 10em">
+    <div class="col-md-6" style="margin-left: 2em">
+      <div class="Bold-Title">
+        But first.. Cafe
+        <img
+          src="/images/logoCute.png"
+          style="margin-left: 0.1em; margin-bottom: 1em"
+        />
+      </div>
+      <div class="cafe-text" style="margin-top: -1em">
+        Explore various coffee preparations, from the rich and creamy cappuccino
+        to the robust and energizing macchiato.We believe that understanding the
+        art of coffee preparation enhances the overall coffee experience. Our
+        range includes a wide selection of coffee beans from different regions
+        of the world, carefully roasted to preserve the full flavor aromatic
+        essence, ranging from the timeless classic of Arabica to the allure of
+        exotic varieties, ensuring a coffee to suit every taste.
+      </div>
+    </div>
+  </div>
+
+  <div
+    class="row justify-content-end"
+    style="margin-top: 10em; margin-right: 5em"
+  >
+    <div class="col-md-8" style="margin-top: 10em">
+      <div class="cafe-text">
+        Our commitment extends beyond providing the finest coffee; our website
+        is a valuable resource offering <br />
+        insightful articles and tips on everything coffee-related. Immerse
+        yourself in our expertise,<br />
+        and feel free to reach out with any questions. We take pride in our
+        expertise and wish to share our knowledge with you.
+      </div>
+    </div>
+
+    <div class="col-md-4">
+      <div class="Bold-Title" style="text-align: center">
+        What's your aestehtic?
+      </div>
+
+      <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active c-item">
+            <img
+              class="d-block w-100"
+              src="/images/picLeft.png"
+              alt="First slide"
+            />
+          </div>
+
+          <div class="carousel-item c-item">
+            <img
+              class="d-block w-100"
+              src="/images/picright.png"
+              alt="second slide"
+            />
+          </div>
+        </div>
+
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-bs-target="#hero-carousel"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-bs-target="#hero-carousel"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+  </div>
 </div>
