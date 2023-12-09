@@ -4,213 +4,227 @@
     <title>CafeAroma</title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
 
-    <%/* If you want to discourage search engines from indexing this site, uncomment the following line: */%>
-    <%/* <meta name="robots" content="noindex"> */%>
- 
+    <%/* If you want to discourage search engines from indexing this site,
+    uncomment the following line: */%> <%/*
+    <meta name="robots" content="noindex" />
+    */%>
 
-    <!--
-        Stylesheets and Preprocessors
-        ==============================
-
-        You can always bring in CSS files manually with `<link>` tags, or asynchronously
-        using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
-        of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-        By default, stylesheets from your `assets/styles` folder are included
-        here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
-        are supported. In production, your styles will be minified and concatenated into
-        a single file.
-
-        To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-        For example, here are a few things you could do:
-
-            + Change the order of your CSS files
-            + Import stylesheets from other directories
-            + Use a different or additional preprocessor, like SASS, SCSS or Stylus
-    -->
-
-    <link rel="stylesheet" href="/styles/importer.css">
-    <link rel="stylesheet" href="/styles/style.css">
-    <link rel="stylesheet" href="/dependencies/bootstrap-green.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/styles/importer.css" />
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link rel="stylesheet" href="/dependencies/bootstrap-green.min.css" />
+        
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
     <!-- Latest compiled and minified CSS -->
 
     <!--CAROUSEL-->
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-<script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
 
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-
-<!--icons-->
-
-<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
-
-
+    <!--icons-->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
-    <body>
-      <!--SCRIPTS-->
-      <script src="/dependencies/sails.io.js"></script>
-      <script src="/dependencies/vue-router.global.js"></script>
-      <script src="/dependencies/vue.global.js"></script>
-      <!--SCRIPTS END-->
-        <!--Navnar 
-
     <header>
-          <a href="#"><img id="logo" src="/images/Logo.png" alt="Logo"></a>
-          <input type="checkbox" id="check">
-          <label for="check" class="icons">
-            <i class='bx bx-menu' id="menu-icon" ></i>
-            <i class='bx bx-x' id="close-icon"></i>
-          </label>
-          <nav class="navbar">
-          <a href="/cafe">Cafe</a>
-          <a href="/shop">Shop</a>
-          <a href="/about">About</a>
-          <a href="/admin">Admin</a>
-          <a href="/shop" class='bx bx-cart' id="cart-icon"></a>
-          <a href="/home" class='bx bx-user'id="user-icon"></a>
-         </nav>
-    </header>
--->
-<header>
-    <!--Navnar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
-      <div class="container">
-            <!--Logo -->
-            <a class="navbar-brand fs-4" href="/"><img id="logo" src="/images/Logo.png" alt="Logo"></a>
-            <!--Toggle BTN -->
-        <button class="navbar-toggler shadow-none border-0" 
-        type="button" 
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasNavbar" 
-        aria-controls="offcanvasNavbar" 
-        aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-            <!--Sidebar -->
-        <div class="sidebar offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-          
-          <!--SideBar Header-->
-          <div class="offcanvas-header text-white border-bottom">
-            <h5 class="cafearoma" style="font-size: 25px;" id="offcanvasNavbarLabel">CafeAroma</h5>
-            <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-          </div>
-
-          <!--SideBar Body-->
-          <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
-            <ul class="navbar-nav justify-content-center align-items-center flex-grow-1 pe-3">
-              
-              <li >
-                <a class="nav-link" href="/cafe">Cafe</a>
-              </li>
-              <li>
-                <a class="nav-link" href="/shop">Shop</a>
-              </li>
-              <li >
-                <a class="nav-link" href="/about">About</a>
-              </li>
-              <li >
-                <a class="nav-link" href="/admin">Admin</a>
-              </li>
-              <li>
-                <a href="/shop" class='bx bx-cart' id="cart-icon"></a>
-              </li>
-            </ul>
-
-            <!--Login / SIgn up-->
-            <div class="d-flex  flex-lg-row justify-content-center align-items-center gap-3">
-              <a href="/login" class="text-white">Login</a>
-              <a href="/signup" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color: #604941;">Signup</a>
+      <!--Navnar -->
+      <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <div class="container">
+          <!--Logo -->
+          <a class="navbar-brand fs-4" href="/"
+            ><img id="logo" src="/images/Logo.png" alt="Logo"
+          /></a>
+          <!--Toggle BTN -->
+          <button
+            class="navbar-toggler shadow-none border-0"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!--Sidebar -->
+          <div
+            class="sidebar offcanvas offcanvas-end"
+            tabindex="-1"
+            id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel"
+          >
+            <!--SideBar Header-->
+            <div class="offcanvas-header text-white border-bottom">
+              <h5
+                class="cafearoma"
+                style="font-size: 25px"
+                id="offcanvasNavbarLabel"
+              >
+                CafeAroma
+              </h5>
+              <button
+                type="button"
+                class="btn-close btn-close-white shadow-none"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
             </div>
 
+            <!--SideBar Body-->
 
-            <form action="/product" class="d-flex" style="margin-left: 2em; padding-top: 20px; padding-bottom: 20px;" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="bx bx-search-alt-2" type="submit"></button>
-            </form>
+            <% if(req.me|| !req.me ) { %>
 
+            <div
+              class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0"
+            >
+              <ul
+                class="navbar-nav justify-content-center align-items-center flex-grow-1 pe-3"
+              >
+                <li>
+                  <a class="nav-link" href="/cafe">Cafe</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="/shop">Shop</a>
+                </li>
+                <li>
+                  <a class="nav-link" href="/about">About</a>
+                </li>
+                <% if(req.me) { %> <% if(req.me.isSuperAdmin) { %>
+                <li>
+                  <a class="nav-link" href="/admin">Admin</a>
+                </li>
+                <% } %> <% } %> <% if(req.session.basket &&
+                req.session.basket.length> 0){ %>
+                <li>
+                  <a
+                    class="bx bx-cart"
+                    id="cart-icon"
+                    href="http://localhost:1337/shopping#/basket"
+                  ></a>
+                  <!-- <a href="/shop" class="bx bx-cart" id="cart-icon"></a> -->
+                </li>
 
+                <% } %> <% console.log('WARENKORBBBB', req.session.basket) %>
+              </ul>
+
+              <!--Login / SIgn up-->
+
+              <!--Login / SIgn up-->
+              <% if (!req.me) { %>
+              <div
+                class="d-flex flex-lg-row justify-content-center align-items-center gap-3"
+              >
+                <div class="nav-item dropdown d-none d-sm-block">
+                  <a href="/login" class="text-white">Login</a>
+                  <a
+                    href="/signup"
+                    class="text-white text-decoration-none px-3 py-1 rounded-4"
+                    style="background-color: #604941"
+                    >Signup</a
+                  >
+                </div>
+              </div>
+              <% } else { %>
+              <!-- Add any additional content or links you want to show when the user is logged in -->
+              <div
+                class="d-flex flex-lg-row justify-content-center align-items-center gap-3"
+              >
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Account
+                </a>
+                <div
+                  style="left: auto; right: 0"
+                  class="dropdown-menu"
+                  aria-labelledby="header-account-menu-link"
+                >
+                  <a class="dropdown-item" href="/account">Settings</a>
+                  <a class="dropdown-item" href="/logout">Sign out</a>
+                </div>
+              </div>
+              <% } %> <% } %>
+
+              <form
+                action="/product"
+                class="d-flex"
+                style="
+                  margin-left: 2em;
+                  padding-top: 20px;
+                  padding-bottom: 20px;
+                "
+                role="search"
+              >
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button class="bx bx-search-alt-2" type="submit"></button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-
-</header>
+      </nav>
+    </header>
     <%- body %>
     <footer class="footer-container">
       <div class="footer-item">
-        CafeAroma<BR>
-        Aromastr. 8<BR>
-        78224 Singen<BR>
+        CafeAroma<BR /> Aromastr. 8<BR /> 78224 Singen<BR />
         <p class="kontakt">
-          Telefon 0049 7735 231200<BR>
-          cafearoma@singen.de<BR>
+          Telefon 0049 7735 231200<BR /> cafearoma@singen.de<BR />
         </p>
       </div>
       <div class="footer-item">
         <ul>
           <li>2023 CafeAroma. All rights reserved.</li>
-          
         </ul>
       </div>
     </footer>
 
-
-
-
-
-
-   
-
-    <!--
-        Server-side View Locals
-        ========================
-
-        Sometimes, it's convenient to get access to your server-side view locals from
-        client-side JavaScript.  This can improve page load times, remove the need for
-        extra AJAX requests, and make your client-side code easier to understand and
-        to maintain.  Sails provides a simple mechanism for accessing dynamic view
-        locals: the "exposeLocalsToBrowser()" view partial.
-
-        For more information on using this built-in feature, see:
-        https://sailsjs.com/docs/concepts/views/locals#?escaping-untrusted-data-using-exposelocalstobrowser
-
-    -->
-
-
-    <!--
-
-      Client-side Javascript
-      ========================
-
-      You can always bring in JS files manually with `script` tags, or asynchronously
-      on the client using a solution like AMD (RequireJS).  Or, if you like, you can
-      take advantage of Sails' conventional asset pipeline (boilerplate Gruntfile).
-
-      By default, files in your `assets/js` folder are included here
-      automatically (between SCRIPTS and SCRIPTS END).  Both JavaScript (.js) and
-      CoffeeScript (.coffee) are supported. In production, your scripts will be minified
-      and concatenated into a single file.
-
-      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
-      For example, here are a few things you could do:
-
-          + Change the order of your scripts
-          + Import scripts from other directories
-          + Use a different preprocessor, like TypeScript
-
-    -->
-
     <!--SCRIPTS-->
     <script src="/dependencies/sails.io.js"></script>
+    <script src="/dependencies/bootstrap.bundle.min.js"></script>
+    <script src="/dependencies/vue-router.global.js"></script>
+    <script src="/dependencies/vue.global.js"></script>
+    <script src="/dependencies/vuetify.min.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
