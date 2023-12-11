@@ -9,29 +9,29 @@
  */
 
 module.exports.policies = {
-
   /***************************************************************************
-  *                                                                          *
-  * Default policy for all controllers and actions, unless overridden.       *
-  * (`true` allows public access)                                            *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * Default policy for all controllers and actions, unless overridden.       *
+   * (`true` allows public access)                                            *
+   *                                                                          *
+   ***************************************************************************/
 
-  '*': 'is-logged-in',
+  "*": "is-logged-in",
 
   // Bypass the `is-logged-in` policy for:
-  'entrance/*': true,
-  'account/logout': true,
+  "entrance/*": true,
+  "account/logout": true,
+
+  "view-admin": "is-super-admin", //forbidden change link to admin
 
   ShopProductsController: {
-    '*': true,
+    "*": true,
   },
 
   ProductController: {
-    '*': 'is-super-admin',
+    "*": "is-super-admin",
   },
   CafetypeController: {
-    '*': 'is-super-admin',
-  }
-
+    "*": "is-super-admin",
+  },
 };
