@@ -9,74 +9,102 @@
  */
 
 module.exports.routes = {
+  "GET /signup": { action: "entrance/view-signup" },
+  "GET /login": { action: "entrance/view-login" },
 
-  'GET /signup':             { action: 'entrance/view-signup' },
-  'GET /login':              { action: 'entrance/view-login' },
-
-  'GET /account':            { action: 'account/view-account-overview' },
-  'GET /account/password':   { action: 'account/view-edit-password' },
-  'GET /account/profile':    { action: 'account/view-edit-profile' },
+  // 'GET /account':            { action: 'account/view-account-overview' },
+  // 'GET /account/password':   { action: 'account/view-edit-password' },
+  // 'GET /account/profile':    { action: 'account/view-edit-profile' },
 
 
   'GET /logout':                         { action: 'account/logout' },
   'POST  /login':                        { action: 'entrance/login' },
   'POST  /signup':                       { action: 'entrance/signup' },
+  'POST  /signup':                       { action: 'entrance/signup' },
   'POST  /updateProfile':                { action: 'account/update-profile' },
   'POST  /updatePassword':               { action: 'account/update-password' },
+  'POST  /signup':                       { action: 'entrance/signup' },
 
   /***************************************************************************
-  *                                                                          *
-  * Make the view located at `views/homepage.ejs` your home page.            *
-  *                                                                          *
-  * (Alternatively, remove this and add an `index.html` file in your         *
-  * `assets` directory)                                                      *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   * Make the view located at `views/homepage.ejs` your home page.            *
+   *                                                                          *
+   * (Alternatively, remove this and add an `index.html` file in your         *
+   * `assets` directory)                                                      *
+   *                                                                          *
+   ***************************************************************************/
 
-  // '/': { view: 'pages/homepage' },
+  '/': { view: 'pages/homepage' },
 
   'GET /shop': { controller: 'ShopProductsController', action: 'shop'},
 
 
-  // 'GET /admin': { view: 'pages/admin' },
-
-  'GET /admin': { action: 'view-admin' },
-  'GET /': { action: 'view-homepage-or-redirect' },
-
-  'GET /product/new': { controller: 'ProductController', action:'new' },
-  'POST /product': { controller: 'ProductController', action: 'create' },
-  'GET /product': 'ProductController.find',
-  'GET /product/:id': 'product.findOne',
-
-  'GET /product/:id/edit': { controller: 'ProductController', action: 'editOne' },
-  'POST /product/:id/update': { controller: 'ProductController', action: 'updateOne' },
-  'GET /product/:id/destroy': { controller: 'ProductController', action: 'destroyOne' },
-
-  'GET /product/report': 'product.report',
-
-  'GET /cafetype/new': { view: 'pages/cafetype/new' },
-  'POST /cafetype': { controller: 'CafetypeController', action:'create' },
-  'GET /cafetype/:id/destroy': { controller: 'CafetypeController', action: 'destroyOne' },
-  'GET /cafetype': { controller: 'CafetypeController', action: 'find' },
-
-
-};
+  'GET /admin': { view: 'pages/admin' },
 
 
 
+  "GET /product/new": { controller: "ProductController", action: "new" },
+  "POST /product": { controller: "ProductController", action: "create" },
+  "GET /product": "ProductController.find",
+  "GET /product/:id": "product.findOne",
 
+  "GET /product/:id/edit": {
+    controller: "ProductController",
+    action: "editOne",
+  },
+  "POST /product/:id/update": {
+    controller: "ProductController",
+    action: "updateOne",
+  },
+  "GET /product/:id/destroy": {
+    controller: "ProductController",
+    action: "destroyOne",
+  },
 
+  "GET /product/report": "product.report",
+
+  "GET /cafetype/new": { view: "pages/cafetype/new" },
+  "POST /cafetype": { controller: "CafetypeController", action: "create" },
+  "GET /cafetype/:id/destroy": {
+    controller: "CafetypeController",
+    action: "destroyOne",
+  },
+  "GET /cafetype": { controller: "CafetypeController", action: "find" },
+
+  // einfacher warenkorb
+  //"GET /shoppingbasket": "ShoppingBasketController.show",
+  // "GET /shoppingbasket/put/:productid": "ShoppingBasketController.put",
+  // "GET /shoppingbasket/remove/:productid": "ShoppingBasketController.remove",
+
+  // "GET /http://localhost:1337/shopping#/basket":
+  //   "ShoppingBasketController.show",
+
+  /**
+   * Order
+   */
+  "/adressForm": { view: "pages/order/adressForm" },
 
   /***************************************************************************
-  *                                                                          *
-  * More custom routes here...                                               *
-  * (See https://sailsjs.com/config/routes for examples.)                    *
-  *                                                                          *
-  * If a request to a URL doesn't match any of the routes in this file, it   *
-  * is matched against "shadow routes" (e.g. blueprint routes).  If it does  *
-  * not match any of those, it is matched against static assets.             *
-  *                                                                          *
-  ***************************************************************************/
+   *                                                                          *
+   *       Shopping Basked API                                                *
+   *                                                                          *
+   ***************************************************************************/
 
+  "GET /shopping": { action: "view-product-shopping" },
 
+  "GET /api/cafetype": { action: "api/cafetype/index" },
 
+  "GET /api/basket": { action: "api/basket/get" },
+  "POST /api/basket": { action: "api/basket/add" },
+};
+
+/***************************************************************************
+ *                                                                          *
+ * More custom routes here...                                               *
+ * (See https://sailsjs.com/config/routes for examples.)                    *
+ *                                                                          *
+ * If a request to a URL doesn't match any of the routes in this file, it   *
+ * is matched against "shadow routes" (e.g. blueprint routes).  If it does  *
+ * not match any of those, it is matched against static assets.             *
+ *                                                                          *
+ ***************************************************************************/
