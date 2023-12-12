@@ -86,9 +86,8 @@ module.exports = {
       sails.log.error("Error during database query:", error);
   }
 
-
   let cafetypes = await Cafetype.find();
-
+  
   res.view('pages/product/index', { products: products, cafetypes:cafetypes });
 }, 
 

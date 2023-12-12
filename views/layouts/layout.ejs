@@ -53,13 +53,7 @@
 
   </head>
 
-  <body>
-    <body>
-      <!--SCRIPTS-->
-      <script src="/dependencies/sails.io.js"></script>
-      <script src="/dependencies/vue-router.global.js"></script>
-      <script src="/dependencies/vue.global.js"></script>
-      <!--SCRIPTS END-->
+  <body>     
         <!--Navnar 
 
     <header>
@@ -107,7 +101,6 @@
           <!--SideBar Body-->
           <div class="offcanvas-body d-flex flex-column flex-lg-row p-4 p-lg-0">
             <ul class="navbar-nav justify-content-center align-items-center flex-grow-1 pe-3">
-              
               <li >
                 <a class="nav-link" href="/cafe">Cafe</a>
               </li>
@@ -117,19 +110,34 @@
               <li >
                 <a class="nav-link" href="/about">About</a>
               </li>
+              <% console.log("Debug: req.me", req.me); %>
+            <% if(req.me) { %>
+                <!-- Nur eingeloggte Benutzer sehen den Admin-Link -->
               <li >
                 <a class="nav-link" href="/admin">Admin</a>
               </li>
+              <% } %>
               <li>
                 <a href="/shop" class='bx bx-cart' id="cart-icon"></a>
               </li>
+              <!-- Dropdown-Menü für eingeloggte Benutzer -->
+            <div class="nav-item dropdown d-none d-sm-block">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Account
+              </a>
+              <div style="left: auto; right: 0;" class="dropdown-menu" aria-labelledby="header-account-menu-link">
+                <a class="dropdown-item" href="/account">Settings</a>
+                <a class="dropdown-item" href="/logout">Sign out</a>
+              </div>
+            </div>
             </ul>
-
             <!--Login / SIgn up-->
+            <% if(!req.me) { %>
             <div class="d-flex  flex-lg-row justify-content-center align-items-center gap-3">
               <a href="/login" class="text-white">Login</a>
               <a href="/signup" class="text-white text-decoration-none px-3 py-1 rounded-4" style="background-color: #604941;">Signup</a>
             </div>
+            <% } %>
 
 
             <form action="/product" class="d-flex" style="margin-left: 2em; padding-top: 20px; padding-bottom: 20px;" role="search">
@@ -211,6 +219,9 @@
 
     <!--SCRIPTS-->
     <script src="/dependencies/sails.io.js"></script>
+    <script src="/dependencies/bootstrap.bundle.min.js"></script>
+    <script src="/dependencies/vue-router.global.js"></script>
+    <script src="/dependencies/vue.global.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>
