@@ -16,21 +16,22 @@ module.exports.policies = {
    *                                                                          *
    ***************************************************************************/
 
-//   '*': 'is-logged-in',
+  "*": "is-logged-in",
 
-//   // Bypass the `is-logged-in` policy for:
-//   'entrance/*': true,
-//   'account/logout': true,
+  // Bypass the `is-logged-in` policy for:
+  "entrance/*": true,
+  "account/logout": true,
 
-//   ShopProductsController: {
-//     '*': true,
-//   },
+  "view-admin": "is-super-admin", //forbidden change link to admin
 
-//   ProductController: {
-//     '*': 'is-super-admin',
-//   },
-//   CafetypeController: {
-//     '*': 'is-super-admin',
-//   }
-// 
+  ShopProductsController: {
+    "*": true,
+  },
+
+  ProductController: {
+    "*": "is-super-admin",
+  },
+  CafetypeController: {
+    "*": "is-super-admin",
+  },
 };
