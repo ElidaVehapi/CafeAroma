@@ -8,6 +8,6 @@ module.exports = {
   exits: {},
 
   fn: async function (inputs) {
-    return (cafetypes = await Cafetype.find().populate("cafetypes"));
+    return (cafetypes = await Cafetype.find().populate("products"));
   },
 };

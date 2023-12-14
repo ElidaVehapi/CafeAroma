@@ -33,7 +33,7 @@ module.exports.routes = {
 
   "/": { view: "pages/homepage" },
 
-  "GET /shop": { controller: "ShopProductsController", action: "shop" },
+  //"GET /shop": { controller: "ShopProductsController", action: "shop" },
   // 'GET /admin': { view: 'pages/admin' },
 
   "GET /admin": { action: "view-admin" },
