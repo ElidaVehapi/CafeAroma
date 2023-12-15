@@ -24,9 +24,9 @@ module.exports.policies = {
 
   "view-admin": "is-super-admin", //forbidden change link to admin
 
-  ShopProductsController: {
-    "*": true,
-  },
+  // ShopProductsController: {
+  //   "*": true,
+  // },
 
   ProductController: {
     "*": "is-super-admin",

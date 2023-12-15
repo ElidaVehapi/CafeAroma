@@ -33,9 +33,6 @@ module.exports.routes = {
 
   "/": { view: "pages/homepage" },
 
-  //"GET /shop": { controller: "ShopProductsController", action: "shop" },
-  // 'GET /admin': { view: 'pages/admin' },
-
   "GET /admin": { action: "view-admin" },
   "GET /welcome": { action: "view-homepage-or-redirect" },
 
@@ -67,13 +64,6 @@ module.exports.routes = {
   },
   "GET /cafetype": { controller: "CafetypeController", action: "find" },
 
-  // einfacher warenkorb
-  //"GET /shoppingbasket": "ShoppingBasketController.show",
-  // "GET /shoppingbasket/put/:productid": "ShoppingBasketController.put",
-  // "GET /shoppingbasket/remove/:productid": "ShoppingBasketController.remove",
-
-  // "GET /http://localhost:1337/shopping#/basket":
-  //   "ShoppingBasketController.show",
 
   /**
    * Order
