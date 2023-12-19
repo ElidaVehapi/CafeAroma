@@ -5,85 +5,68 @@ export default {
     };
   },
   created() {
-    let url = new URL(origin + '/api/basket');
-    fetch(url)
-    .then(res => res.json())
-    .then(data => this.basket = data.basket)
+    this.loadBasket();
   },
+
   methods: {
+    remove: function (index) {
+      let url = new URL(origin + "/api/basket");
+      let data = new FormData();
+      data.append("index", index);
 
-  },  
+      console.log("data :>> ", data);
+
+      fetch(url, {
+        method: "DELETE",
+        body: data,
+      }).then((result) => {
+        console.log("DELETE-Anfrage erfolgreich");
+        this.loadBasket();
+      });
+    },
+    loadBasket: function () {
+      let url = new URL(origin + "/api/basket");
+      fetch(url)
+        .then((res) => res.json())
+        .then((data) => (this.basket = data.basket));
+    },
+  },
+  computed: {
+    groupedBasket() {
+      const grouped = {};
+      this.basket?.forEach((item) => {
+        if (!grouped[item.id]) {
+          grouped[item.id] = { ...item, quantity: 1 };
+        } else {
+          grouped[item.id].quantity++;
+        }
+      });
+      console.log("grouped :>> ", grouped);
+      return Object.values(grouped);
+    },
+  },
+
   template: `
-  <div class="container">
-  <h2 class="mt-4">Ihr Einkauswagen</h2>
-    <table class="table mt-4">
-        <tr v-for="(item,index) in basket">
-            <td class="menu-title">
-                {{ item.name}}
-            </td>
-            <td class="menu-price">
-                {{ item.price}} &euro;
-            </td>
-            <td class="menu-price">
-                <a class="badge badge-primary" href="/shoppingbasket/remove/{{index}}">entfernen</a>
-            </td>
+    <div class="container">
+      <h2 class="mt-4">Ihr Einkaufswagen</h2>
+      <table class="table mt-4">
+        <tr v-for="(item, index) in groupedBasket" :key="index">
+          <td class="menu-title">
+            {{ item.name }}
+          </td>
+          <td class="menu-price">
+            {{ item.price }} &euro;
+          </td>
+          <td class="menu-quantity">
+            Menge: {{ item.quantity }}
+          </td>
+          <td class="menu-remove">
+            <a class="btn btn-outline-dark" @click="remove(index)">entfernen</a>
+          </td>
         </tr>
-    </table>
-    <router-link class="btn btn-secondary mr-5" to="/">Weiter einkaufen</router-link>
-    <router-link class="btn btn-primary" to="/">Bestellung abschliessen</router-link>
-    </div>
-    `,
+      </table>
+      <v-btn  class="standard-btn" :style="{hover}" rounded="xl" to="/">Weiter einkaufen</v-btn>
+      <v-btn class="standard-btn"  color="#8d6e63" rounded="xl" to="/address"><span style="color:white">Bestellung abschliessen</span></v-btn>
+      </div>
+  `,
 };
-// export default {
-//   data() {
-//     return {
-//       basket: [],
-//     };
-//   },
-//   created() {
-//     let url = new URL(origin + "/api/basket");
-//     fetch(url)
-//       .then((res) => res.json())
-//       .then((data) => (this.basket = data.basket));
-//   },
-//   methods: {
-//     remove: function (index) {
-//       let url = new URL(origin + "/api/basket");
-//       let data = new FormData();
-//       data.append("index", index);
-//       fetch(url, { method: "DELETE", body: data }).then((result) => {
-//         this.loadBasket();
-//       });
-//     },
-//     loadBasket: function () {
-//       let url = new URL(origin + "/api/basket");
-//       fetch(url)
-//         .then((res) => res.json())
-//         .then((data) => (this.basket = data.basket));
-//     },
-//   },
-//   template: `
-//   <div class="container">
-//   <h2 class="mt-4">Ihr Einkauswagen</h2>
-//     <table class="table mt-4">
-//         <tr v-for="(item,index) in basket">
-//             <td class="menu-title">
-//                 {{ item.name}}
-//             </td>
-//             <td class="menu-price">
-//                 {{ item.price}} &euro;
-//             </td>
-//             <td class="menu-price">
-//                 <v-icon @click="remove(index)">mdi-cart-remove</v-icon>
-//             </td>
-//         </tr>
-//     </table>
-//     <v-row justify="center" class="mt-2">
-//       <v-btn  class="mx-2" rounded="xl" to="/">Weiter einkaufen</v-btn>
-//       <v-btn class="mx-2"  color="#85A60F" rounded="xl" to="/address"><span style="color:white">Bestellung abschliessen</span></v-btn>
-//     </v-row>    
-//     </div>
-
-//     `,
-// };
-

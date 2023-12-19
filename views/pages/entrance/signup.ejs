@@ -48,18 +48,13 @@
           <input class="form-control" id="confirm-password" name="confirmPassword" type="password"  placeholder="••••••••" autocomplete="new-password">
           <div class="invalid-feedback">Your password and confirmation do not match.</div>
         </div>
-        <!-- terms check -->
-        <div class="form-group form-check">
-          <input class="form-check-input" id="terms-agreement" name="termsAgreement" type="checkbox" v-model="formData.agreed">
-          <label for="terms-agreement" class="form-check-label">I have read &amp; agree to the <a target="_blank" href="/terms">terms of service</a>.</label>
-        </div>
+       
 
         <span>It looks like there's already an account with your email address. If you forgot your password, you can recover it <a href="password/forgot">here</a>.</span>
         <!-- submit button -->
         <div class="form-group">
-          <button type="submit" class="btn-dark btn-lg btn-block">Create account</button>
+          <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Create account</button>
         </div>
-      </ajax>
       <p class="text-center">Have an account? <a href="/login">Sign in</a></p>
     </div>
   </div>

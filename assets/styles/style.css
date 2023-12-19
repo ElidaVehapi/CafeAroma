@@ -228,3 +228,8 @@ footer {
 .lh-condensed {
   line-height: 1.25;
 }
+
+.custom-outline {
+  color: #8d6e63; /* Textfarbe */
+  border-color: #8d6e63; /* Randfarbe */
+}

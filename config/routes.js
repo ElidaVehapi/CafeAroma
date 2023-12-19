@@ -64,7 +64,6 @@ module.exports.routes = {
   },
   "GET /cafetype": { controller: "CafetypeController", action: "find" },
 
-
   /**
    * Order
    */
@@ -82,6 +81,8 @@ module.exports.routes = {
 
   "GET /api/basket": { action: "api/basket/get" },
   "POST /api/basket": { action: "api/basket/add" },
+  "POST /api/address": { action: "api/basket/post-address" },
+  "DELETE /api/basket": { action: "api/basket/remove" },
 };
 
 /***************************************************************************
