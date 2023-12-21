@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="/styles/style.css" />
     <link rel="stylesheet" href="/dependencies/bootstrap-green.min.css" />
     <link rel="stylesheet" href="/dependencies/vuetify.min.css" />
+    <link
+    rel="stylesheet"
+    href="/node_modules/bootstrap/dist/css/bootstrap.min.css"
+  />
 
         
     <link
@@ -142,7 +146,8 @@
                   <!-- <a href="/shop" class="bx bx-cart" id="cart-icon"></a> -->
                 </li>
 
-                <% } %> <% console.log('WARENKORB', req.session.basket) %>
+                <% } %> 
+                <!-- <% console.log('WARENKORB', req.session.basket) %> -->
               </ul>
 
               <!--Login / SIgn up-->
@@ -165,26 +170,26 @@
               <% } else { %>
               <!-- Add any additional content or links you want to show when the user is logged in -->
               <div
-                class="d-flex flex-lg-row justify-content-center align-items-center gap-3"
-              >
+                class="d-flex flex-lg-row justify-content-center align-items-center gap-3">
+              <div class="dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  class="btn dropdown-toggle "
                   href="#"
                   role="button"
                   data-bs-toggle="dropdown"
+                  data-display="static" 
                   aria-expanded="false"
                 >
                   Account
                 </a>
-                <div
-                  style="left: auto; right: 0"
-                  class="dropdown-menu"
-                  aria-labelledby="header-account-menu-link"
-                >
-                  <a class="dropdown-item" href="/account">Settings</a>
-                  <a class="dropdown-item" href="/logout">Sign out</a>
+                <div class="dropdown-menu" aria-labelledby="header-account-menu-link">
+                  <a class="dropdown-item" href="/account">Account</a>
+                  <a class="dropdown-item" href="/logout">Logout</a>
                 </div>
               </div>
+            </div>
+
+                
               <% } %> <% } %>
             </div>
           </div>
