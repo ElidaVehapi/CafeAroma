@@ -2,7 +2,7 @@
   <div class="container-fluid pt-5 pb-5">
     <h1 class="text-center">Create an account</h1>
     <div style="max-width: 450px;" class="mx-auto" >
-      <p class="text-center">Let's get started! Becoming a member is free and only takes a few minutes.</p>
+      <p class="text-center">Let's get started! Becoming a member of CafeAroma for free!</p>
       <hr/>
       <form action="signup" method="POST">
         <!-- Full name input -->
@@ -13,7 +13,7 @@
            id="full-name" 
            name="fullName" 
            type="text"  
-           placeholder="Sturgis P. Sturgeon" 
+           placeholder="Max Mustermann" 
            autocomplete="name" 
            focus-first>
           <div class="invalid-feedback">Please enter your full name.</div>
@@ -26,7 +26,7 @@
           id="emaila-address" 
           name="emailAddress" 
           type="email"  
-          placeholder="sturgeon@example.com" 
+          placeholder="max@example.com" 
           autocomplete="email">
           <div class="invalid-feedback">Please enter a valid email address.</div>
         </div>
@@ -48,18 +48,11 @@
           <input class="form-control" id="confirm-password" name="confirmPassword" type="password"  placeholder="••••••••" autocomplete="new-password">
           <div class="invalid-feedback">Your password and confirmation do not match.</div>
         </div>
-        <!-- terms check -->
-        <div class="form-group form-check">
-          <input class="form-check-input" id="terms-agreement" name="termsAgreement" type="checkbox" v-model="formData.agreed">
-          <label for="terms-agreement" class="form-check-label">I have read &amp; agree to the <a target="_blank" href="/terms">terms of service</a>.</label>
-        </div>
-
-        <span>It looks like there's already an account with your email address. If you forgot your password, you can recover it <a href="password/forgot">here</a>.</span>
+       
         <!-- submit button -->
         <div class="form-group">
-          <button type="submit" class="btn-dark btn-lg btn-block">Create account</button>
+          <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Create account</button>
         </div>
-      </ajax>
       <p class="text-center">Have an account? <a href="/login">Sign in</a></p>
     </div>
   </div>

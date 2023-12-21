@@ -4,10 +4,18 @@
 <script type="module">
   import Menu from "/vue/shopmenu.js";
   import Basket from "/vue/basket.js";
+  import Address from "/vue/address.js";
+  import Checkout from "/vue/checkout.js";
+  import VerifiedOrder from "/vue/verifiedOrder.js";
+  import Cafe from "/vue/cafe.js";
 
   const routes = [
     { path: "/", component: Menu },
     { path: "/basket", component: Basket },
+    { path: "/address", component: Address },
+    { path: "/checkout", component: Checkout },
+    { path: "/verifiedOrder", component: VerifiedOrder },
+    { path: "/cafe", component: Cafe },
   ];
 
   const router = VueRouter.createRouter({
@@ -17,8 +25,8 @@
 
   // 5. Create and mount the root instance.
   const app = Vue.createApp({});
+  const vuetify = Vuetify.createVuetify({});
   app.use(router);
+  app.use(vuetify);
   app.mount("#app");
 </script>
-
-
