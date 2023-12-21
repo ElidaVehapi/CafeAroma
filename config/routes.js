@@ -83,6 +83,10 @@ module.exports.routes = {
   "POST /api/basket": { action: "api/basket/add" },
   "POST /api/address": { action: "api/basket/post-address" },
   "DELETE /api/basket": { action: "api/basket/remove" },
+
+  //Cafe carousel
+
+  "/cafe": { view: "pages/cafeCarousel" },
 };
 
 /***************************************************************************
