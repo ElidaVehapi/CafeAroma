@@ -33,6 +33,10 @@ module.exports.routes = {
 
   "/": { view: "pages/homepage" },
 
+  "/about": { view: "pages/about" },
+
+
+
   "GET /admin": { action: "view-admin" },
   "GET /welcome": { action: "view-homepage-or-redirect" },
 
