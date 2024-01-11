@@ -30,9 +30,9 @@ header {
   font-size: 25px;
 }
 
-a:hover {
-  background: #875e4c;
-}
+/* a:hover {
+  background: rgba(150, 109, 91, 0.449);
+} */
 
 nav a:hover {
   color: black;
