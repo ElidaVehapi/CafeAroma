@@ -8,6 +8,9 @@
   import Checkout from "/vue/checkout.js";
   import VerifiedOrder from "/vue/verifiedOrder.js";
   import Cafe from "/vue/cafe.js";
+  import shopentrycomponent from "/vue/shopentry.js";
+
+
 
   const routes = [
     { path: "/", component: Menu },
@@ -16,6 +19,8 @@
     { path: "/checkout", component: Checkout },
     { path: "/verifiedOrder", component: VerifiedOrder },
     { path: "/cafe", component: Cafe },
+    { path: "/shopentry", component: shopentrycomponent },
+
   ];
 
   const router = VueRouter.createRouter({

@@ -18,6 +18,12 @@ module.exports = {
       columnType: 'DECIMAL(6,2)',
       required: true
     },
+    image: { 
+      type: 'string', 
+      columnType: 'varchar(128)' ,
+      required: false
+    },
+
     cafetype: {
       model: 'cafetype'
     }

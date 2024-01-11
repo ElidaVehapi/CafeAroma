@@ -12,10 +12,9 @@
             <label class="col-form-label-lg">Price</label>
             <input type="text" class="form-control" maxlength="8" value="<%= product.price %>" name="price">
         </div>
-      
       </div>
-  
-    <button type="submit" class="brown-button" style="width: auto;">Update</button>
+      <a  href="/product/<%=product.id %>/uploadImageForm" class="btn btn-outline-dark">Upload picture</a>
+    <button type="submit" class="btn btn-outline-dark" style="width: auto;">Update</button>
     </form>
   </div>
   

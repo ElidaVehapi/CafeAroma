@@ -1,23 +1,25 @@
 <div class="container">
     <h1>CafeProducts</h1>
 
-    <form action="/product">
-        <label>Search</label>
-        <input type="text" value="<%= req.query.q || '' %>" length="20" name="q">
-        
-        <label>Cafetype</label>
-        <select name="cafetype">
-            <option value="-1" <% if (!req.query.cafetype) { %>selected<% } %>>Alle</option>
-            <% cafetypes.forEach(function(cafetype) { %>
-                <option value="<%= cafetype.id %>" <% if (req.query.cafetype == cafetype.id) { %>selected<% } %>><%= cafetype.name %></option>
-            <% }); %>
-        </select>
+    <form class="form-inline my-2 my-lg-3" action="/product">
+        <div class="form-group mr-2">
+            <label for="search">Search</label>
+            <input type="text" class="form-control" id="search" value="<%= req.query.q || '' %>" name="q">
+        </div>
     
-        <button class="standard-btn " type="submit">Search</button>
+        <div class="form-group mr-2">
+            <label for="cafetype">Cafetype</label>
+            <select class="form-control" id="cafetype" name="cafetype">
+                <option value="-1" <% if (!req.query.cafetype) { %>selected<% } %>>Alle</option>
+                <% cafetypes.forEach(function(cafetype) { %>
+                    <option value="<%= cafetype.id %>" <% if (req.query.cafetype == cafetype.id) { %>selected<% } %>><%= cafetype.name %></option>
+                <% }); %>
+            </select>
+        </div>
+    
+        <button type="submit" class="btn btn-outline-dark">Search</button>
     </form>
-
     
-
     <div class="item-content">
         <table class="table">
             <thead>
