@@ -3,12 +3,12 @@
 
     <form class="form-inline my-2 my-lg-3" action="/product">
         <div class="form-group mr-2">
-            <label for="search">Search</label>
+            <label for="search">Suche</label>
             <input type="text" class="form-control" id="search" value="<%= req.query.q || '' %>" name="q">
         </div>
     
         <div class="form-group mr-2">
-            <label for="cafetype">Cafetype</label>
+            <label for="cafetype">Kaffetyp</label>
             <select class="form-control" id="cafetype" name="cafetype">
                 <option value="-1" <% if (!req.query.cafetype) { %>selected<% } %>>Alle</option>
                 <% cafetypes.forEach(function(cafetype) { %>
@@ -17,15 +17,15 @@
             </select>
         </div>
     
-        <button type="submit" class="btn btn-outline-dark">Search</button>
+        <button type="submit" class="btn btn-outline-dark">Suche</button>
     </form>
     
     <div class="item-content">
         <table class="table">
             <thead>
                 <th>Name</th>
-                <th>Price</th>
-                <th>Cafetype</th>
+                <th>Preis</th>
+                <th>Kaffetyp</th>
             </thead>
             <tbody>
                 <% if (products && products.length > 0) { %>
@@ -40,19 +40,18 @@
                         <td>
                             <%= product.cafetype.name %>
                         </td>
-                        <td> <a class="standard-btn" href="/product/<%= product.id %>">Show</a></td>
-                        <td> <a class="standard-btn" href="/product/<%= product.id %>/edit">Edit</a></td>
-                        <td> <a class="standard-btn" href="/product/<%= product.id %>/destroy">Delete</a></td>
+                        <td> <a class="standard-btn" href="/product/<%= product.id %>">Anzeigen</a></td>
+                        <td> <a class="standard-btn" href="/product/<%= product.id %>/edit">Bearbeiten</a></td>
+                        <td> <a class="standard-btn" href="/product/<%= product.id %>/destroy">Löschen</a></td>
                     </tr>
                     <% }); %>
                     <% } else { %>
                         <tr>
-                            <td colspan="3">No products found</td>
+                            <td colspan="3">Kein Produkt gefunden</td>
                         </tr>
                     <% } %>
             </tbody>
         </table>
-        <a class="brown-button" href="/product/new">Add</a>
+        <a class="btn btn-outline-dark" href="/product/new">Hinzufügen</a>
     </div>
-</div>
 </div>

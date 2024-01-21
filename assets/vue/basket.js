@@ -14,8 +14,6 @@ export default {
       let data = new FormData();
       data.append("index", index);
 
-      console.log("data :>> ", data);
-
       fetch(url, {
         method: "DELETE",
         body: data,
@@ -29,6 +27,16 @@ export default {
       fetch(url)
         .then((res) => res.json())
         .then((data) => (this.basket = data.basket));
+    },
+    isBasketEmpty: function () {
+      return !this.basket || this.basket.length === 0;
+    },
+    navigateToShipping: function () {
+      if (this.isBasketEmpty()) {
+        alert("Ihr Warenkorb ist leer. Bitte fügen Sie Produkte hinzu.");
+      } else {
+        this.$router.push({ path: "/address" });
+      }
     },
   },
   computed: {
@@ -66,7 +74,7 @@ export default {
         </tr>
       </table>
       <v-btn  class="standard-btn" :style="{hover}" rounded="xl" to="/">Weiter einkaufen</v-btn>
-      <v-btn class="standard-btn"  color="#8d6e63" rounded="xl" to="/address"><span style="color:white">Bestellung abschliessen</span></v-btn>
+      <v-btn class="standard-btn"  color="#8d6e63" rounded="xl" @click="navigateToShipping"><span style="color:white">Weiter zum Versand</span></v-btn>
       </div>
   `,
 };

@@ -1,27 +1,70 @@
-
 <div class="container">
-  <form action="/product" method="post">
-      <h1>Create New Product</h1>
-      <div class="form-group">
-        <label class="col-form-label-lg">Name</label>
-        <input type="text" class="form-control" maxlength="80" name="name">
-      </div>  
-      <div class="form-group">
-      <label class="col-form-label-lg">Price</label>
-      <input type="text" class="form-control" maxlength="8" name="price">
-      </div>
-
-    <div class="form-group" >
-      <label class="col-form-label-lg">Cafetype (required)</label>
-      <select id="cafetype" name="cafetype">
-        <option value="" selected>select</option>
-          <% for (let i = 0; i < cafetypes.length; i++) { %>
-              <option value="<%= cafetypes[i].id %>"><%= cafetypes[i].name %></option>
-            <% } %>
-      </select>    
+  <form action="/product" method="post" id="productForm">
+    <h1>Erstelle ein neues Produkt</h1>
+    <div class="form-group">
+      <label class="col-form-label-lg">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        maxlength="80"
+        name="name"
+        id="productName"
+      />
+    </div>
+    <div class="form-group">
+      <label class="col-form-label-lg">Preis</label>
+      <input
+        type="text"
+        class="form-control"
+        maxlength="8"
+        name="price"
+        id="productPrice"
+      />
     </div>
 
-    <button type="submit" class="brown-button" style="width: 10%">Add</button>
-    </form>
+    <div class="form-group">
+      <label class="col-form-label-lg">Kaffetyp</label>
+      <select id="cafetype" name="cafetype">
+        <option value="" selected>wähle</option>
+        <% for (let i = 0; i < cafetypes.length; i++) { %>
+        <option value="<%= cafetypes[i].id %>"><%= cafetypes[i].name %></option>
+        <% } %>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-outline-dark">Hinzufügen</button>
+  </form>
+
+  <!-- Korrekte Einbindung des Scripts -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document
+        .getElementById("productForm")
+        .addEventListener("submit", function (event) {
+          // Überprüfe, ob ein Kaffetyp ausgewählt wurde
+          var cafetype = document.getElementById("cafetype").value;
+          if (cafetype === "") {
+            alert("Bitte Kaffetyp auswählen");
+            event.preventDefault();
+            return;
+          }
+
+          // Überprüfe, ob ein Name angegeben wurde
+          var name = document.getElementById("productName").value;
+          if (name.trim() === "") {
+            alert("Bitte einen Namen eingeben");
+            event.preventDefault();
+            return;
+          }
+
+          // Überprüfe, ob ein Preis angegeben wurde
+          var price = document.getElementById("productPrice").value;
+          if (price.trim() === "") {
+            alert("Bitte einen Preis eingeben");
+            event.preventDefault();
+            return;
+          }
+        });
+    });
+  </script>
 </div>
-  

@@ -1,19 +1,16 @@
 * {
   /*text-decoration:none;*/
+  /* box-sizing: content-box; */
   box-sizing: border-box;
+
   font-family: "Poppins", sans-serif;
   margin: 0;
 }
 
 body {
-  background: linear-gradient(to bottom, #8d6e63, #fbf7f5);
+  background: linear-gradient(to bottom, #a17d71, #fbf7f5);
   font-size: 20px;
-}
-
-header {
-}
-
-.navbar {
+  /* background: linear-gradient(to bottom, #8d6e63, #fbf7f5); */
 }
 
 /* cafe, shop, about + login  */
@@ -96,8 +93,28 @@ nav a:hover {
   padding-top: 13px;
   padding-bottom: 13px;
   text-decoration: none;
-  width: 40%;
+  /* max-width: 40%; */
+  width: 170px;
+  height: 50px;
   color: white;
+}
+
+.brown-button-admin {
+  border-width: 3px;
+  background-color: #5d4037;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  text-decoration: none;
+  max-width: 40%;
+  color: white;
+}
+
+.brown-button-admin:hover {
+  background: #875e4c;
+  color: #fbf7f5;
 }
 
 .brown-button:hover {
@@ -129,10 +146,10 @@ footer {
   flex-basis: 50%;
 }
 
-.HomePic {
+/* .HomePic {
   width: 100%;
   margin-left: -5em;
-}
+} */
 
 .Bold-Title {
   font-weight: bold;
@@ -174,12 +191,18 @@ footer {
   right: 0;
 }
 
+/* @media (max-width: 882px) {
+  .col-md-4 p {
+    margin-right: 5em;
+  }
+} */
+
 /* alles in mobile version von 0 bis einschlißelich 767 */
 @media (max-width: 767px) {
-  .col-md-5 {
+  /* .col-md-5 {
     margin-top: 10em;
     margin-left: -1em;
-  }
+  } */
 
   .col-md-5 img {
     width: 100%;
@@ -233,6 +256,3 @@ footer {
   color: #8d6e63; /* Textfarbe */
   border-color: #8d6e63; /* Randfarbe */
 }
-
-
-
