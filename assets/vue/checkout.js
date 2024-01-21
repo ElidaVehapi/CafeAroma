@@ -51,7 +51,7 @@ export default {
 
   template: `
     <div class="container">
-      <h2 class="mt-4">Order Summary</h2>
+      <h2 class="mt-4">Bestellzusammenfassung</h2>
       <table class="table mt-4">
         <tr v-for="(item, index) in orderSummary" :key="index">
           <td class="menu-title">
@@ -65,10 +65,10 @@ export default {
           </td>
         </tr>
       </table>
-      <p>Total Price: {{ totalPrice }} &euro;</p>
+      <p>Summe: {{ totalPrice }} &euro;</p>
       <v-row justify="center" class="mt-4">
-        <v-btn  class="standard-btn" rounded="xl" to="/">Continue Shopping</v-btn>
-        <v-btn class="standard-btn"  color="#8d6e63" rounded="xl" to="/verifiedOrder" ><span style="color:white">Verify Order</span></v-btn>
+        <v-btn  class="standard-btn" rounded="xl" to="/">Weiter einkaufen </v-btn>
+        <v-btn class="standard-btn"  color="#8d6e63" rounded="xl" to="/verifiedOrder" ><span style="color:white">Jetzt zahlungspflichtig bestellen</span></v-btn>
         </v-row> 
     </div>
   `,

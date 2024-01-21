@@ -2,7 +2,7 @@ export default {
   data() {
     return {
       cafetypes: [],
-      selectedCafetype: "All Cafetypes",
+      selectedCafetype: "Alle Kaffetypen",
       om: "",
       search: "",
     };
@@ -36,7 +36,7 @@ export default {
 
       this.cafetypes.forEach((cafetype) => {
         if (
-          (this.selectedCafetype === "All Cafetypes" || // Anpassung der Bedingung
+          (this.selectedCafetype === "Alle Kaffetypen" || // Anpassung der Bedingung
             this.selectedCafetype === cafetype.name) &&
           (regex.test(cafetype.name) ||
             regex.test(cafetype.products.map((p) => p.name).join(" ")))
@@ -49,7 +49,7 @@ export default {
 
         cafetype.products.forEach((product) => {
           if (
-            (this.selectedCafetype === "All Cafetypes" || // Anpassung der Bedingung
+            (this.selectedCafetype === "Alle Kaffetypen" || // Anpassung der Bedingung
               this.selectedCafetype === cafetype.name) &&
             (regex.test(product.name) || regex.test(cafetype.name))
           ) {
@@ -72,7 +72,7 @@ export default {
   <div class="container">
   <div class="row" style="text-align:center">
     <div class="col">
-      <span class="h1">Shop Your Products</span>
+      <span class="h1">Kauf dein Produkt</span>
     </div>
   </div>
 
@@ -80,7 +80,7 @@ export default {
     <div class="col-md-5">
       <v-select
         v-model="selectedCafetype"
-        :items="['All Cafetypes', ...cafetypes.map(cafetype => cafetype.name)]"
+        :items="['Alle Kaffetypen', ...cafetypes.map(cafetype => cafetype.name)]"
         label="Select Cafetype"
         outlined
       ></v-select>

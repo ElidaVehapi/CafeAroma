@@ -1,13 +1,38 @@
 <div class="container">
-    <form action="/cafetype" method="post">
-        <input type="hidden" name="_csrf" value="<%= _csrf %>"/>
-        <div>
-            <div class="form-group">
-                <label class="col-form-label-lg">Name</label>
-                <input type="text" class="form-control" maxlength="80" name="name">
-            </div>
-    
-        </div>
-        <button type="submit" class="green-button mt-4">Add</button>
-    </form>
+  <form id="myForm" action="/cafetype" method="post">
+    <input type="hidden" name="_csrf" value="<%= _csrf %>" />
+    <div>
+      <div class="form-group">
+        <label class="col-form-label-lg">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          maxlength="80"
+          name="name"
+          id="nameInput"
+        />
+      </div>
+    </div>
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      onclick="validateAndSubmit()"
+    >
+      Hinzufügen
+    </button>
+  </form>
+
+  <script>
+    function validateAndSubmit() {
+      var nameInput = document.getElementById("nameInput").value;
+
+      // Überprüfen, ob der Name leer ist
+      if (nameInput.trim() === "") {
+        alert("Eingabe erforderlich. Bitte geben Sie einen Namen ein.");
+      } else {
+        // Wenn der Name nicht leer ist, das Formular absenden
+        document.getElementById("myForm").submit();
+      }
+    }
+  </script>
 </div>
