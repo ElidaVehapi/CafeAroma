@@ -5,6 +5,7 @@ export default {
       selectedCafetype: "Alle Kaffetypen",
       om: "",
       search: "",
+      csrfToken: ""
     };
   },
   created() {
@@ -13,13 +14,24 @@ export default {
       .then((res) => res.json())
       .then((data) => (this.cafetypes = data))
       .catch((error) => console.error("Error fetching data:", error));
+    this.loadCsrfToken();
+
   },
 
   methods: {
+    loadCsrfToken: function() {
+      fetch(origin + "/csrfToken")
+        .then((res) => res.json())
+        .then((data) => (this.csrfToken = data._csrf))
+        .catch((error) => console.error("Error fetching CSRF token:", error));
+    },
+
     order: function (event) {
       let url = new URL(origin + "/api/basket");
       let data = new FormData();
       data.append("id", event.target.id);
+      data.append("_csrf", this.csrfToken); 
+
       fetch(url, {
         method: "POST",
         body: data,
@@ -71,6 +83,8 @@ export default {
   template: `
   <div class="container">
   <div class="row" style="text-align:center">
+  <input type="hidden" name="_csrf" v-model="csrfToken" />
+
     <div class="col">
       <span class="h1">Kauf dein Produkt</span>
     </div>

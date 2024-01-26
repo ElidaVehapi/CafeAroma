@@ -2,10 +2,12 @@ export default {
   data() {
     return {
       basket: [],
+      csrfToken: "",
     };
   },
   created() {
     this.loadBasket();
+    this.loadCsrfToken();
   },
 
   methods: {
@@ -13,6 +15,7 @@ export default {
       let url = new URL(origin + "/api/basket");
       let data = new FormData();
       data.append("index", index);
+      data.append("_csrf", this.csrfToken);
 
       fetch(url, {
         method: "DELETE",
@@ -22,6 +25,13 @@ export default {
         this.loadBasket();
       });
     },
+    loadCsrfToken: function() {
+      fetch(origin + "/csrfToken")
+        .then((res) => res.json())
+        .then((data) => (this.csrfToken = data._csrf))
+        .catch((error) => console.error("Error fetching CSRF token:", error));
+    },
+
     loadBasket: function () {
       let url = new URL(origin + "/api/basket");
       fetch(url)
@@ -57,6 +67,8 @@ export default {
   template: `
     <div class="container">
       <h2 class="mt-4">Ihr Einkaufswagen</h2>
+      <input type="hidden" name="_csrf" v-model="csrfToken" />
+
       <table class="table mt-4">
         <tr v-for="(item, index) in groupedBasket" :key="index">
           <td class="menu-title">

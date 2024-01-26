@@ -3,6 +3,7 @@ export default {
     return {
       name: "",
       address: "",
+      csrfToken: "",
       nameRules: [
         (val) => {
           if (!val.trim()) {
@@ -35,8 +36,17 @@ export default {
       ],
     };
   },
-
+  created() {
+    this.loadCsrfToken();
+  },
   methods: {
+    loadCsrfToken: function() {
+      fetch(origin + "/csrfToken")
+        .then((res) => res.json())
+        .then((data) => (this.csrfToken = data._csrf))
+        .catch((error) => console.error("Error fetching CSRF token:", error));
+    },
+
     submitAddress() {
       if (!this.name.trim() || !this.address.trim()) {
         alert("Name oder Adresse darf nicht leer sein");
@@ -50,19 +60,26 @@ export default {
         let data = new FormData();
         data.append("name", this.name);
         data.append("address", this.address);
+        data.append("_csrf", this.csrfToken); 
+
         fetch(url, {
           method: "POST",
           body: data,
         }).then((result) => {
-          // Navigate to "/checkout" only if there are no issues
+          this.loadCsrfToken();
           this.$router.push("/checkout");
+        })
+          .catch((error) => {
+            console.error("Fehler beim Absenden der Adresse:", error);
         });
+        
       }
     },
   },
 
   template: `
   <div class="container">
+  <input type="hidden" name="_csrf" v-model="csrfToken" />
       <h1 style="text-align: center" >Versand Info</h1>
       <v-sheet class="mx-auto"max-width="500">
         <v-form>
