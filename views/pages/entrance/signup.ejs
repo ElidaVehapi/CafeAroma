@@ -1,13 +1,13 @@
 <div id="signup">
   <div class="container-fluid pt-5 pb-5">
-    <h1 class="text-center">Create an account</h1>
+    <h1 class="text-center">Erstelle einen Account</h1>
     <div style="max-width: 450px;" class="mx-auto" >
-      <p class="text-center">Let's get started! Becoming a member of CafeAroma for free!</p>
+      <p class="text-center">Lass uns starten! Werde ein Member bei CafeAroma kostenlos!</p>
       <hr/>
       <form action="signup" method="POST">
         <!-- Full name input -->
         <div class="form-group">
-          <label for="full-name">Full name</label>
+          <label for="full-name">Voller Name</label>
           <input 
           class="form-control"
            id="full-name" 
@@ -16,7 +16,7 @@
            placeholder="Max Mustermann" 
            autocomplete="name" 
            focus-first>
-          <div class="invalid-feedback">Please enter your full name.</div>
+          <div class="invalid-feedback">Bitte gebe deinen vollen Namen ein.</div>
         </div>
         <!-- email input -->
         <div class="form-group">
@@ -28,11 +28,11 @@
           type="email"  
           placeholder="max@example.com" 
           autocomplete="email">
-          <div class="invalid-feedback">Please enter a valid email address.</div>
+          <div class="invalid-feedback">Bitte gebe eine gültige E-Mail an.</div>
         </div>
         <!-- password input -->
         <div class="form-group">
-          <label for="password">Choose a password</label>
+          <label for="password">Wähle Passwort</label>
           <input 
           class="form-control"
            id="password" 
@@ -40,23 +40,24 @@
            type="password"  
            placeholder="••••••••" 
            autocomplete="new-password">
-          <div class="invalid-feedback">Please enter a password.</div>
+          <div class="invalid-feedback">Bitte gib ein Passwort ein</div>
         </div>
         <!-- confirm password  -->
         <div class="form-group">
-          <label for="confirm-password">Confirm password</label>
+          <label for="confirm-password">Bestätige Passwort</label>
           <input class="form-control" id="confirm-password" name="confirmPassword" type="password"  placeholder="••••••••" autocomplete="new-password">
-          <div class="invalid-feedback">Your password and confirmation do not match.</div>
+          <div class="invalid-feedback">Deine Passwörter stimmen nicht überein.</div>
         </div>
        
         <!-- submit button -->
         <div class="form-group">
-          <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Create account</button>
+          <button type="submit" class="btn btn-outline-dark btn-lg btn-block">Erstelle Account</button>
         </div>
-      <p class="text-center">Have an account? <a href="/login">Sign in</a></p>
+      <p class="text-center">Du hast schon einen Account? <a href="/login">Sign in</a></p>
     </div>
   </div>
 </div>
+
 <%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>
 
 <!-- Vue Password Computed Component Script -->

@@ -1,9 +1,15 @@
 <div id="login">
   <div class="container-fluid pt-5 pb-5">
-    <h1 class="text-center">Sign in to your account</h1>
+    <h1 class="text-center">Einloggen</h1>
     <div style="max-width: 450px" class="mx-auto">
       <hr />
-      <form action="login" method="POST">
+      <form
+        id="loginForm"
+        action="login"
+        method="POST"
+        onsubmit="return validateLoginForm()"
+      >
+      <input type="hidden" name="_csrf" value="<%= _csrf %>" />
         <div class="form-group">
           <input
             type="email"
@@ -14,7 +20,7 @@
             focus-first
           />
           <div class="invalid-feedback">
-            Please provide a valid email address.
+            Bitte geben Sie eine gültige E-Mail-Adresse ein.
           </div>
         </div>
         <div class="form-group">
@@ -25,7 +31,7 @@
             placeholder="Password"
             autocomplete="current-password"
           />
-          <div class="invalid-feedback">Please enter your password.</div>
+          <div class="invalid-feedback">Bitte geben Sie Ihr Passwort ein.</div>
         </div>
 
         <div class="form-group">
@@ -36,5 +42,20 @@
       </form>
     </div>
   </div>
+
+  <script>
+    function validateLoginForm() {
+      var emailInput = document.getElementsByName("emailAddress")[0].value;
+      var passwordInput = document.getElementsByName("password")[0].value;
+
+      // Überprüfen, ob E-Mail und Passwort leer sind
+      if (emailInput.trim() === "" || passwordInput.trim() === "") {
+        alert("Geben Sie E-Mail und Passwort ein.");
+        return false; // Verhindert das Absenden des Formulars
+      }
+
+      // Wenn E-Mail und Passwort nicht leer sind, kann das Formular abgesendet werden
+      return true;
+    }
+  </script>
 </div>
-<%- /* Expose locals as `window.SAILS_LOCALS` :: */ exposeLocalsToBrowser() %>

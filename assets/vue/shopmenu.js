@@ -2,9 +2,10 @@ export default {
   data() {
     return {
       cafetypes: [],
-      selectedCafetype: "All Cafetypes",
+      selectedCafetype: "Alle Kaffetypen",
       om: "",
       search: "",
+      csrfToken: ""
     };
   },
   created() {
@@ -13,13 +14,24 @@ export default {
       .then((res) => res.json())
       .then((data) => (this.cafetypes = data))
       .catch((error) => console.error("Error fetching data:", error));
+    this.loadCsrfToken();
+
   },
 
   methods: {
+    loadCsrfToken: function() {
+      fetch(origin + "/csrfToken")
+        .then((res) => res.json())
+        .then((data) => (this.csrfToken = data._csrf))
+        .catch((error) => console.error("Error fetching CSRF token:", error));
+    },
+
     order: function (event) {
       let url = new URL(origin + "/api/basket");
       let data = new FormData();
       data.append("id", event.target.id);
+      data.append("_csrf", this.csrfToken); 
+
       fetch(url, {
         method: "POST",
         body: data,
@@ -36,7 +48,7 @@ export default {
 
       this.cafetypes.forEach((cafetype) => {
         if (
-          (this.selectedCafetype === "All Cafetypes" || // Anpassung der Bedingung
+          (this.selectedCafetype === "Alle Kaffetypen" || // Anpassung der Bedingung
             this.selectedCafetype === cafetype.name) &&
           (regex.test(cafetype.name) ||
             regex.test(cafetype.products.map((p) => p.name).join(" ")))
@@ -49,7 +61,7 @@ export default {
 
         cafetype.products.forEach((product) => {
           if (
-            (this.selectedCafetype === "All Cafetypes" || // Anpassung der Bedingung
+            (this.selectedCafetype === "Alle Kaffetypen" || // Anpassung der Bedingung
               this.selectedCafetype === cafetype.name) &&
             (regex.test(product.name) || regex.test(cafetype.name))
           ) {
@@ -71,8 +83,10 @@ export default {
   template: `
   <div class="container">
   <div class="row" style="text-align:center">
+  <input type="hidden" name="_csrf" v-model="csrfToken" />
+
     <div class="col">
-      <span class="h1">Shop Your Products</span>
+      <span class="h1">Kauf dein Produkt</span>
     </div>
   </div>
 
@@ -80,7 +94,7 @@ export default {
     <div class="col-md-5">
       <v-select
         v-model="selectedCafetype"
-        :items="['All Cafetypes', ...cafetypes.map(cafetype => cafetype.name)]"
+        :items="['Alle Kaffetypen', ...cafetypes.map(cafetype => cafetype.name)]"
         label="Select Cafetype"
         outlined
       ></v-select>

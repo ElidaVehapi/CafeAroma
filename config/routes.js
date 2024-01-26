@@ -35,7 +35,7 @@ module.exports.routes = {
 
   "/about": { view: "pages/about" },
 
-
+  'GET /csrfToken': 'CsrfTokenController.getToken',
 
   "GET /admin": { action: "view-admin" },
   "GET /welcome": { action: "view-homepage-or-redirect" },
@@ -57,6 +57,9 @@ module.exports.routes = {
     controller: "ProductController",
     action: "destroyOne",
   },
+  'GET /product/:id/uploadImageForm': { controller: 'ProductController', action: 'uploadImageForm' },
+  'POST /product/:id/uploadImage': { controller: 'ProductController', action: 'uploadImage' },
+
 
   "GET /product/report": "product.report",
 
@@ -87,6 +90,8 @@ module.exports.routes = {
   "POST /api/basket": { action: "api/basket/add" },
   "POST /api/address": { action: "api/basket/post-address" },
   "DELETE /api/basket": { action: "api/basket/remove" },
+  // "DELETE /api/basket": { action: "api/basket/clear"},
+
 
   //Cafe carousel
 

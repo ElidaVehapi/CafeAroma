@@ -2,10 +2,12 @@ export default {
   data() {
     return {
       basket: [],
+      csrfToken: "",
     };
   },
   created() {
     this.loadBasket();
+    this.loadCsrfToken();
   },
 
   methods: {
@@ -13,8 +15,7 @@ export default {
       let url = new URL(origin + "/api/basket");
       let data = new FormData();
       data.append("index", index);
-
-      console.log("data :>> ", data);
+      data.append("_csrf", this.csrfToken);
 
       fetch(url, {
         method: "DELETE",
@@ -24,11 +25,28 @@ export default {
         this.loadBasket();
       });
     },
+    loadCsrfToken: function() {
+      fetch(origin + "/csrfToken")
+        .then((res) => res.json())
+        .then((data) => (this.csrfToken = data._csrf))
+        .catch((error) => console.error("Error fetching CSRF token:", error));
+    },
+
     loadBasket: function () {
       let url = new URL(origin + "/api/basket");
       fetch(url)
         .then((res) => res.json())
         .then((data) => (this.basket = data.basket));
+    },
+    isBasketEmpty: function () {
+      return !this.basket || this.basket.length === 0;
+    },
+    navigateToShipping: function () {
+      if (this.isBasketEmpty()) {
+        alert("Ihr Warenkorb ist leer. Bitte fügen Sie Produkte hinzu.");
+      } else {
+        this.$router.push({ path: "/address" });
+      }
     },
   },
   computed: {
@@ -49,6 +67,8 @@ export default {
   template: `
     <div class="container">
       <h2 class="mt-4">Ihr Einkaufswagen</h2>
+      <input type="hidden" name="_csrf" v-model="csrfToken" />
+
       <table class="table mt-4">
         <tr v-for="(item, index) in groupedBasket" :key="index">
           <td class="menu-title">
@@ -66,7 +86,7 @@ export default {
         </tr>
       </table>
       <v-btn  class="standard-btn" :style="{hover}" rounded="xl" to="/">Weiter einkaufen</v-btn>
-      <v-btn class="standard-btn"  color="#8d6e63" rounded="xl" to="/address"><span style="color:white">Bestellung abschliessen</span></v-btn>
+      <v-btn class="standard-btn"  color="#8d6e63" rounded="xl" @click="navigateToShipping"><span style="color:white">Weiter zum Versand</span></v-btn>
       </div>
   `,
 };
